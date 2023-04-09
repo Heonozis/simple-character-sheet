@@ -12,27 +12,22 @@ import { AppDispatch } from '../redux/store';
 import defaultCharacter from '../character'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { set } from '../redux/slice';
+import { init } from '../redux/slice';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function New() {
   const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate()
-  const { character } = useSelector((state: any) => state.character)
 
   const addCharacter = () => {
-    if (!character.id) {
-      dispatch(createCharacter({ data: character }))
-    }
+    dispatch(createCharacter({ data: defaultCharacter }))
   }
 
-  useEffect(() => {
-    dispatch(set(defaultCharacter))
-  }, [])
+  const { character } = useSelector((state: any) => state.character)
 
   useEffect(() => {
-    if (character.id) {
+    if (character.id && character.new) {
       navigate(`/character/${character.id}`)
     }
   }, [character])

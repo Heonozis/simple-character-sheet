@@ -14,6 +14,11 @@ export const characterSlice = createSlice({
       state.character = newState
       console.log('State updated', newState);
     },
+    init: (state, action) => {
+      localStorage.setItem("character", JSON.stringify(action.payload));
+      state.character = action.payload
+      console.log('State updated', action.payload);
+    },
   },
   extraReducers: builder => {
     builder
@@ -34,7 +39,8 @@ export const characterSlice = createSlice({
 
 export const fetchCharacter = createAsyncThunk('character/fetch', async ({ id }: any) => {
   const response = await api.get(`/character/${id}`)
-  return response.data
+  const data = { ...response.data , new: false}
+  return data
 })
 
 export const createCharacter = createAsyncThunk('character/create', async ({ data }: any) => {
@@ -51,6 +57,6 @@ export const updateCharacter = createAsyncThunk('character/update', async ({ id,
   return { ...data, id }
 })
 
-export const { set } = characterSlice.actions
+export const { set, init } = characterSlice.actions
 
 export default characterSlice.reducer

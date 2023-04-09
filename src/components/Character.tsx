@@ -7,7 +7,7 @@ import { AccessTime, AccountCircle, Add, Casino, Delete, DirectionsRun, Favorite
 import Item from './Item';
 import { Input, InputLeft, InputRight } from './Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCharacter, updateCharacter } from '../redux/slice';
+import { fetchCharacter, set, updateCharacter } from '../redux/slice';
 import { AppDispatch } from '../redux/store';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';

@@ -1,5 +1,6 @@
 export default {
   name: "Player 1",
+  new: true,
   level: "1",
   race: "Human",
   class: "Fighter",
