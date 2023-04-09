@@ -30,7 +30,11 @@ export default function Character() {
 
   const addItem = () => {
     const data = { ...character }
-    data.items = [...data.items, { name: "", description: "" }];
+    if (data.items) {
+      data.items = [...data.items, { name: "", description: "" }];
+    } else {
+      data.items = [{ name: "", description: "" }];
+    }
     dispatch(updateCharacter({ id: character.id, data }))
   }
 
@@ -45,7 +49,11 @@ export default function Character() {
 
   const addInventoryItem = () => {
     const data = { ...character }
-    data.inventory = [...data.inventory, { name: "", count: "" }];
+    if (data.inventory) {
+      data.inventory = [...data.inventory, { name: "", count: "" }];
+    } else {
+      data.inventory = [{ name: "", count: "" }];
+    }
     dispatch(updateCharacter({ id: character.id, data }))
   }
 
@@ -60,7 +68,11 @@ export default function Character() {
 
   const addSpell = () => {
     const data = { ...character }
-    data.spells = [...data.spells, { name: "", level: "" }];
+    if (data.spells) {
+      data.spells = [...data.spells, { name: "", level: "" }];
+    } else {
+      data.spells = [{ name: "", level: "" }];
+    }
     dispatch(updateCharacter({ id: character.id, data }))
   }
 
