@@ -1,0 +1,1 @@
+export const API_URL = "https://heonozis.herokuapp.com"

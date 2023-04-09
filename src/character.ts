@@ -43,7 +43,7 @@ export default {
     {
       name: "CON",
       value: "0",
-      proficient: true
+      proficient: false
     },
     {
       name: "INT",
@@ -53,7 +53,7 @@ export default {
     {
       name: "WIS",
       value: "0",
-      proficient: true
+      proficient: false
     },
     {
       name: "CHA",
